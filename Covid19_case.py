@@ -1,62 +1,68 @@
 
 print("******************Information about  the Covid -19 Cases********************")
-   
-from covid import Covid
-covid=Covid(source="worldometers") 
-#covid=Covid()     
-print("What do You Want !!!!")    
-print("""
-      Press 1 for "Get All Data."
-      Press 2 for "List Countries."
-      Press 3 for "Get Status By ID."
-      Press 4 for "Get Status By Country Name."
-      Press 5 for "Get Total Active Cases."
-      Press 6 for "Get Total Confirmed Cases."
-      Press 7 for "Get Total Recovered Cases."
-      Press 8 for "Get Total Death Cases."
-      """)
-take_input=(int(input(">>>>>   ")))       
-if (take_input==8):
-     print("Total Death Cases is :", f'{covid.get_total_deaths():,}') 
-elif(take_input==7):
-     print("Total Recovered Cases is :",f'{covid.get_total_recovered():,}')          
-elif(take_input==1):    
-    print("Press 1' for Print all data")
-    print("Press 2 for Print top 5 data")
-    data_input=int(input(">>>>  "))
-    if data_input==1:
-        for item in covid.get_data():
-            for key,value in item.items():
-                print(key,":",value)
-    elif data_input==2:
-         for item in covid.get_data()[:5]:
-             print("Top List")
-             for list1 in list(item.items())[1:6]:
-              print(list1)
-elif take_input==3:
-    id_input=input("Enter country id:= >>>")
-    for id in list(covid.get_status_by_country_id(id_input).items())[1:6]:
-        print(id)        
-elif(take_input==4):
-    country_name=input("Enter Country Name:= ")
-    print(" Information about the ",country_name.upper()," Country Case.")
-    for country in list(covid.get_status_by_country_name(country_name).items())[1:6]:
-        print(country)        
-elif take_input == 2:
-    print("Country List :>>>>")
-    for country_list in covid.list_countries():
-        print(country_list)
-elif(take_input==5):
-    print("Total Active Cases around the World. !")
-    print("Active Cases:= ",f'{covid.get_total_active_cases():,}')
-elif(take_input==6):
-    print("Total Confirmed Cases around the World. !")
-    print("Total Confirmed Cases is : ",f'{covid.get_total_confirmed_cases():,}')                       
-else:
-    print("Choose Valid key !")
-  
-    
-    
+while True:      
+    from covid import Covid
+    covid=Covid(source="worldometers") 
+    #covid=Covid()     
+    print("What do You Want !!!!")    
+    print("""
+          Press 1 for "Get All Data."
+          Press 2 for "List Countries."
+          Press 3 for "Get Status By ID."
+          Press 4 for "Get Status By Country Name."
+          Press 5 for "Get Total Active Cases."
+          Press 6 for "Get Total Confirmed Cases."
+          Press 7 for "Get Total Recovered Cases."
+          Press 8 for "Get Total Death Cases."
+          """)
+    take_input=(int(input(">>>>>   ")))       
+    if (take_input==8):
+         print("Total Death Cases is :", f'{covid.get_total_deaths():,}') 
+    elif(take_input==7):
+         print("Total Recovered Cases is :",f'{covid.get_total_recovered():,}')          
+    elif(take_input==1):    
+        print("Press 1' for Print all data")
+        print("Press 2 for Print top 5 data")
+        data_input=int(input(">>>>  "))
+        if data_input==1:
+            for item in covid.get_data():
+                for key,value in item.items():
+                    print(key,":",value)
+        elif data_input==2:
+             for item in covid.get_data()[:5]:
+                 print("Top List")
+                 for list1 in list(item.items())[1:6]:
+                  print(list1)
+    elif take_input==3:
+        id_input=input("Enter country id:= >>>")
+        for id in list(covid.get_status_by_country_id(id_input).items())[1:6]:
+            print(id)        
+    elif(take_input==4):
+        country_name=input("Enter Country Name:= ")
+        print(" Information about the ",country_name.upper()," Country Case.")
+        for country in list(covid.get_status_by_country_name(country_name).items())[1:6]:
+            print(country)        
+    elif take_input == 2:
+        print("Country List :>>>>")
+        for country_list in covid.list_countries():
+            print(country_list)
+    elif(take_input==5):
+        print("Total Active Cases around the World. !")
+        print("Active Cases:= ",f'{covid.get_total_active_cases():,}')
+    elif(take_input==6):
+        print("Total Confirmed Cases around the World. !")
+        print("Total Confirmed Cases is : ",f'{covid.get_total_confirmed_cases():,}')                       
+    else:
+        print("Choose Valid key !")
+    ans=input("Do you want to Continue.! Press (Y) for Yes or (N) for No.").lower()
+    while ans not in ('y','n'):
+        print("Enter Valid Key !")
+        ans=input("Do you want to Continue.! Press (Y) for Yes or (N) for No.").lower()
+    if (ans =='n'):
+        break      
+print("################### Thanks for giving a Time.! ###################")    
+        
+        
         
         
     # =============================================================================
