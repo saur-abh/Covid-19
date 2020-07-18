@@ -17,9 +17,9 @@ print("""
       """)
 take_input=(int(input(">>>>>   ")))       
 if (take_input==8):
-     print("Total Death Cases is :", covid.get_total_deaths()) 
+     print("Total Death Cases is :", f'{covid.get_total_deaths():,}') 
 elif(take_input==7):
-     print("Total Recovered Cases is :",covid.get_total_recovered())          
+     print("Total Recovered Cases is :",f'{covid.get_total_recovered():,}')          
 elif(take_input==1):    
     print("Press 1' for Print all data")
     print("Press 2 for Print top 5 data")
@@ -48,10 +48,10 @@ elif take_input == 2:
         print(country_list)
 elif(take_input==5):
     print("Total Active Cases around the World. !")
-    print("Active Cases:= ",covid.get_total_active_cases())
+    print("Active Cases:= ",f'{covid.get_total_active_cases():,}')
 elif(take_input==6):
     print("Total Confirmed Cases around the World. !")
-    print("Total Confirmed Cases is : ",fcovid.get_total_confirmed_cases()')                       
+    print("Total Confirmed Cases is : ",f'{covid.get_total_confirmed_cases():,}')                       
 else:
     print("Choose Valid key !")
   
